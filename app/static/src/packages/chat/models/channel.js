@@ -1,10 +1,19 @@
 define(function(require, exports, module) {
 	var Message = require('./message');
 	return Backbone.Model.extend({
+		reName: /^private-/,
 		defaults: {
+			nameText: '',
 			name: '',
 			pusher: null,
 			channel: null
+		},
+		initialize: function() {
+			this.on('change:name', this._setNameText);
+			this._setNameText();
+		},
+		_setNameText: function() {
+			this.set('nameText', this.get('name').replace(this.reName, ''));
 		},
 		subscribe: function() {
 			var pusher,
