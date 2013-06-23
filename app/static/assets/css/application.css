@@ -1,0 +1,88 @@
+body {
+  color: #444;
+  font-family: sans;
+}
+
+.fl-left {
+  float: left;
+}
+
+.fl-right {
+  float: right;
+}
+
+.fl-clear {
+  clear: both;
+}
+
+.gp-border, #chat-form .container input, #chat-form .container textarea {
+  border: 1px solid #777777;
+  border-radius: 3px;
+}
+
+#content {
+  width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#chat-form, #chat-log {
+  width: 800px;
+}
+
+#chat-form .container {
+  width: 800px;
+  padding: 5px;
+  margin: 5px;
+  text-align: left;
+}
+#chat-form .container input, #chat-form .container textarea {
+  padding: 3px;
+  width: 790px;
+  margin: 0 auto;
+}
+#chat-form .container textarea {
+  resize: none;
+}
+#chat-form .container textarea.message {
+  height: 100px;
+}
+#chat-form .container textarea.message.error {
+  border-color: #ff0000;
+}
+#chat-form .container input[type=button] {
+  width: auto;
+}
+#chat-form .container.controls {
+  text-align: right;
+}
+#chat-form .container.message label {
+  display: block;
+}
+
+#chat-log ul.unstyled-list {
+  width: 790px;
+  max-width: 790px;
+  border: 1px solid #444444;
+  border-radius: 3px;
+  list-style-type: none;
+  height: 300px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+#chat-log ul.unstyled-list li.message-item {
+  padding: 3px;
+  text-align: left;
+}
+#chat-log ul.unstyled-list li.message-item .info {
+  background-color: #eee;
+  padding: 3px;
+  overflow: hidden;
+  font-size: 8pt;
+  border: 1px solid;
+}
+#chat-log ul.unstyled-list li.message-item .body {
+  padding-top: 5px;
+  font-size: 10pt;
+  text-align: left;
+}
