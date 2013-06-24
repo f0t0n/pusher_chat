@@ -9,6 +9,11 @@
     <div id="content"></div>
     <script type="text/javascript" src="/static/lib/require.js"></script>
     <script type="text/javascript" src="/static/src/config.js"></script>
+    {% if app.debug %}
     <script type="text/javascript" src="/static/src/main.js"></script>
+    {% else %}
+    <script type="text/javascript" src="/static/src/main-built.js"></script>
+    {% endif %}
+    
 </body>
 </html>
