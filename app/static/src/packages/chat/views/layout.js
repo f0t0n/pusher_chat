@@ -15,7 +15,7 @@ define(function(require, exports, module) {
 			chatLog: '#chat-log',
 			chatForm: '#chat-form'
 		},
-		regionViews: {
+		viewInitializers: {
 			chatLog: function() {
 				return new ChatLogView({
 					model: this.model,
@@ -35,7 +35,7 @@ define(function(require, exports, module) {
 			var region,
 				viewInitializer;
 			region = this[name];
-			viewInitializer = _.bind(this.regionViews[name], this);
+			viewInitializer = _.bind(this.viewInitializers[name], this);
 			region.show(viewInitializer());
 		}
 	});
