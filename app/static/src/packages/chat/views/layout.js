@@ -16,24 +16,27 @@ define(function(require, exports, module) {
 			chatForm: '#chat-form'
 		},
 		regionViews: {
-			chatLog: ChatLogView,
-			chatForm: ChatFormView
+			chatLog: function() {
+				return new ChatLogView({
+					model: this.model,
+					collection: new MessageCollection()
+				});
+			},
+			chatForm: function() {
+				return new ChatFormView({
+					model: this.model
+				});
+			}
 		},
 		onRender: function() {
 			_.each(this.regions, this._showRegion, this);
 		},
 		_showRegion: function(selector, name) {
 			var region,
-				view;
+				viewInitializer;
 			region = this[name];
-			viewOptions = {
-				model: this.model
-			};
-			if(name === 'chatLog') {
-				viewOptions.collection = new MessageCollection();
-			}
-			view = new this.regionViews[name](viewOptions);
-			region.show(view);
+			viewInitializer = _.bind(this.regionViews[name], this);
+			region.show(viewInitializer());
 		}
 	});
 });
